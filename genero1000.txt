@@ -1,0 +1,76 @@
+Confusion Matrix and Statistics
+
+          Reference
+Prediction female male
+    female    461  237
+    male      239  463
+                                          
+               Accuracy : 0.66            
+                 95% CI : (0.6345, 0.6848)
+    No Information Rate : 0.5             
+    P-Value [Acc > NIR] : <2e-16          
+                                          
+                  Kappa : 0.32            
+ Mcnemar's Test P-Value : 0.9634          
+                                          
+            Sensitivity : 0.6586          
+            Specificity : 0.6614          
+         Pos Pred Value : 0.6605          
+         Neg Pred Value : 0.6595          
+             Prevalence : 0.5000          
+         Detection Rate : 0.3293          
+   Detection Prevalence : 0.4986          
+      Balanced Accuracy : 0.6600          
+                                          
+       'Positive' Class : female  
+
+
+
+
+
+
+
+VARIETY
+
+Confusion Matrix and Statistics
+
+           Reference
+Prediction  argentina chile colombia mexico peru spain venezuela
+  argentina       162     8        7      9   11     8         5
+  chile             9   170        7      9   15     2         5
+  colombia         11     7      151     18   11     7        19
+  mexico            5     3       13    140   11     4        11
+  peru              9     8       11     11  142     5        10
+  spain             3     4        3      6    8   173         8
+  venezuela         1     0        8      7    2     1       142
+
+Overall Statistics
+                                          
+               Accuracy : 0.7714          
+                 95% CI : (0.7485, 0.7932)
+    No Information Rate : 0.1429          
+    P-Value [Acc > NIR] : < 2e-16         
+                                          
+                  Kappa : 0.7333          
+ Mcnemar's Test P-Value : 0.01407         
+
+Statistics by Class:
+
+                     Class: argentina Class: chile Class: colombia Class: mexico Class: peru Class: spain
+Sensitivity                    0.8100       0.8500          0.7550        0.7000      0.7100       0.8650
+Specificity                    0.9600       0.9608          0.9392        0.9608      0.9550       0.9733
+Pos Pred Value                 0.7714       0.7834          0.6741        0.7487      0.7245       0.8439
+Neg Pred Value                 0.9681       0.9746          0.9583        0.9505      0.9518       0.9774
+Prevalence                     0.1429       0.1429          0.1429        0.1429      0.1429       0.1429
+Detection Rate                 0.1157       0.1214          0.1079        0.1000      0.1014       0.1236
+Detection Prevalence           0.1500       0.1550          0.1600        0.1336      0.1400       0.1464
+Balanced Accuracy              0.8850       0.9054          0.8471        0.8304      0.8325       0.9192
+                     Class: venezuela
+Sensitivity                    0.7100
+Specificity                    0.9842
+Pos Pred Value                 0.8820
+Neg Pred Value                 0.9532
+Prevalence                     0.1429
+Detection Rate                 0.1014
+Detection Prevalence           0.1150
+Balanced Accuracy              0.8471

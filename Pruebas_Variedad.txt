@@ -1,0 +1,623 @@
+/**************/
+/** VARIEDAD **/
+/**************/
+
+
+/**********************/
+/* BOLSA 100 PALABRAS */
+/**********************/
+
+/*****************************************/
+Support Vector Machines with Linear Kernel 
+/*****************************************/
+
+# model_SVM_variety <- train( theclass~., data= training_variety, trControl = train_control, method = "svmLinear")
+
+Confusion Matrix and Statistics
+
+           Reference
+Prediction  argentina chile colombia mexico peru spain venezuela
+  argentina       131    28       18     11   25    10        13
+  chile            29    99       17     10   46    26        10
+  colombia         12    27       85     22   30    19        17
+  mexico            5     4       12    127   13    23         4
+  peru             10    30       36     15   56    15        14
+  spain             7     9       17      8   20   101         9
+  venezuela         6     3       15      7   10     6       133
+
+Overall Statistics
+                                          
+               Accuracy : 0.5229          
+                 95% CI : (0.4963, 0.5493)
+    No Information Rate : 0.1429          
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.4433          
+ Mcnemar's Test P-Value : 0.0008919       
+
+Statistics by Class:
+
+                     Class: argentina Class: chile Class: colombia Class: mexico Class: peru Class: spain
+Sensitivity                   0.65500      0.49500         0.42500       0.63500      0.2800      0.50500
+Specificity                   0.91250      0.88500         0.89417       0.94917      0.9000      0.94167
+Pos Pred Value                0.55508      0.41772         0.40094       0.67553      0.3182      0.59064
+Neg Pred Value                0.94072      0.91316         0.90320       0.93977      0.8824      0.91945
+Prevalence                    0.14286      0.14286         0.14286       0.14286      0.1429      0.14286
+Detection Rate                0.09357      0.07071         0.06071       0.09071      0.0400      0.07214
+Detection Prevalence          0.16857      0.16929         0.15143       0.13429      0.1257      0.12214
+Balanced Accuracy             0.78375      0.69000         0.65958       0.79208      0.5900      0.72333
+                     Class: venezuela
+Sensitivity                    0.6650
+Specificity                    0.9608
+Pos Pred Value                 0.7389
+Neg Pred Value                 0.9451
+Prevalence                     0.1429
+Detection Rate                 0.0950
+Detection Prevalence           0.1286
+Balanced Accuracy              0.8129
+
+
+
+/*****************************************/
+Support Vector Machines with Radial Kernel 
+/*****************************************/
+ESTE RADIAL NOS PROPORCIONA PEORES RESULTADOS EN VARIEDAD PARA UN VOCABULARIO PEQUEÑO, PERO EN GENERO FUNCIONA MEJOR
+# model_SVM_variety <- train( theclass~., data= training_variety, trControl = train_control, method = "svmRadial")
+
+
+Confusion Matrix and Statistics
+
+           Reference
+Prediction  argentina chile colombia mexico peru spain venezuela
+  argentina       121    15        7     11   19    11         8
+  chile            36   111       13     13   41    18        19
+  colombia         13    15       81     24   20    15        18
+  mexico            6     6        9    107   16    18         7
+  peru             13    37       51     24   70    15        20
+  spain             5    11       28     13   26   118         9
+  venezuela         6     5       11      8    8     5       119
+
+Overall Statistics
+                                          
+               Accuracy : 0.5193          
+                 95% CI : (0.4927, 0.5458)
+    No Information Rate : 0.1429          
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.4392          
+ Mcnemar's Test P-Value : 1.491e-06       
+
+Statistics by Class:
+
+                     Class: argentina Class: chile Class: colombia Class: mexico Class: peru Class: spain
+Sensitivity                   0.60500      0.55500         0.40500       0.53500      0.3500      0.59000
+Specificity                   0.94083      0.88333         0.91250       0.94833      0.8667      0.92333
+Pos Pred Value                0.63021      0.44223         0.43548       0.63314      0.3043      0.56190
+Neg Pred Value                0.93460      0.92254         0.90198       0.92445      0.8889      0.93109
+Prevalence                    0.14286      0.14286         0.14286       0.14286      0.1429      0.14286
+Detection Rate                0.08643      0.07929         0.05786       0.07643      0.0500      0.08429
+Detection Prevalence          0.13714      0.17929         0.13286       0.12071      0.1643      0.15000
+Balanced Accuracy             0.77292      0.71917         0.65875       0.74167      0.6083      0.75667
+                     Class: venezuela
+Sensitivity                    0.5950
+Specificity                    0.9642
+Pos Pred Value                 0.7346
+Neg Pred Value                 0.9346
+Prevalence                     0.1429
+Detection Rate                 0.0850
+Detection Prevalence           0.1157
+Balanced Accuracy              0.7796
+
+
+
+/*************************/
+NAIVE BAYES
+/*************************/
+
+model_NaiveBayes_variety <- naiveBayes(theclass ~., data=training_variety)
+
+Confusion Matrix and Statistics
+
+           Reference
+Prediction  argentina chile colombia mexico peru spain venezuela
+  argentina       115    36       12     10   23    13         5
+  chile            19    51       16      7   24     7        10
+  colombia         13    18       75     27   24    20        21
+  mexico            4     5        3     86   15    13         6
+  peru             11    22       25     16   31     9        15
+  spain            30    53       51     37   64   129        40
+  venezuela         8    15       18     17   19     9       103
+
+Overall Statistics
+                                          
+               Accuracy : 0.4214          
+                 95% CI : (0.3954, 0.4478)
+    No Information Rate : 0.1429          
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.325           
+ Mcnemar's Test P-Value : < 2.2e-16       
+
+Statistics by Class:
+
+                     Class: argentina Class: chile Class: colombia Class: mexico Class: peru Class: spain
+Sensitivity                   0.57500      0.25500         0.37500       0.43000     0.15500      0.64500
+Specificity                   0.91750      0.93083         0.89750       0.96167     0.91833      0.77083
+Pos Pred Value                0.53738      0.38060         0.37879       0.65152     0.24031      0.31931
+Neg Pred Value                0.92833      0.88231         0.89601       0.91009     0.86703      0.92871
+Prevalence                    0.14286      0.14286         0.14286       0.14286     0.14286      0.14286
+Detection Rate                0.08214      0.03643         0.05357       0.06143     0.02214      0.09214
+Detection Prevalence          0.15286      0.09571         0.14143       0.09429     0.09214      0.28857
+Balanced Accuracy             0.74625      0.59292         0.63625       0.69583     0.53667      0.70792
+                     Class: venezuela
+Sensitivity                   0.51500
+Specificity                   0.92833
+Pos Pred Value                0.54497
+Neg Pred Value                0.91990
+Prevalence                    0.14286
+Detection Rate                0.07357
+Detection Prevalence          0.13500
+Balanced Accuracy             0.72167
+
+
+
+/**********************/
+/* BOLSA 200 PALABRAS */
+/**********************/
+
+
+/*****************************************/
+Support Vector Machines with Linear Kernel 
+/*****************************************/
+
+Confusion Matrix and Statistics
+
+           Reference
+Prediction  argentina chile colombia mexico peru spain venezuela
+  argentina       161     8       11      9   22    10        18
+  chile            11   154       11     10   29     6         7
+  colombia          7     8      121     23   20    11        16
+  mexico            5     6       20    129   29    20        14
+  peru             12    17       17     18   80    16        22
+  spain             2     4       10      7   11   130        12
+  venezuela         2     3       10      4    9     7       111
+
+Overall Statistics
+                                         
+               Accuracy : 0.6329         
+                 95% CI : (0.607, 0.6582)
+    No Information Rate : 0.1429         
+    P-Value [Acc > NIR] : < 2.2e-16      
+                                         
+                  Kappa : 0.5717         
+ Mcnemar's Test P-Value : 9.389e-05      
+
+Statistics by Class:
+
+                     Class: argentina Class: chile Class: colombia Class: mexico Class: peru Class: spain
+Sensitivity                    0.8050       0.7700         0.60500       0.64500     0.40000      0.65000
+Specificity                    0.9350       0.9383         0.92917       0.92167     0.91500      0.96167
+Pos Pred Value                 0.6736       0.6754         0.58738       0.57848     0.43956      0.73864
+Neg Pred Value                 0.9664       0.9608         0.93384       0.93968     0.90148      0.94281
+Prevalence                     0.1429       0.1429         0.14286       0.14286     0.14286      0.14286
+Detection Rate                 0.1150       0.1100         0.08643       0.09214     0.05714      0.09286
+Detection Prevalence           0.1707       0.1629         0.14714       0.15929     0.13000      0.12571
+Balanced Accuracy              0.8700       0.8542         0.76708       0.78333     0.65750      0.80583
+                     Class: venezuela
+Sensitivity                   0.55500
+Specificity                   0.97083
+Pos Pred Value                0.76027
+Neg Pred Value                0.92903
+Prevalence                    0.14286
+Detection Rate                0.07929
+Detection Prevalence          0.10429
+Balanced Accuracy             0.76292
+
+/*****************************************/
+Support Vector Machines with Radial Kernel 
+/*****************************************/
+
+Confusion Matrix and Statistics
+
+           Reference
+Prediction  argentina chile colombia mexico peru spain venezuela
+  argentina       160     3        5      4    7     4         2
+  chile             5   152        6      3   16     1         8
+  colombia          7     8      116     17   21     5        20
+  mexico            4     5       11    126   23    14         9
+  peru             15    21       33     34  105    10        24
+  spain             2     2       12      7   19   155         5
+  venezuela         7     9       17      9    9    11       132
+
+Overall Statistics
+                                          
+               Accuracy : 0.6757          
+                 95% CI : (0.6505, 0.7002)
+    No Information Rate : 0.1429          
+    P-Value [Acc > NIR] : < 2e-16         
+                                          
+                  Kappa : 0.6217          
+ Mcnemar's Test P-Value : 0.05286         
+
+Statistics by Class:
+
+                     Class: argentina Class: chile Class: colombia Class: mexico Class: peru Class: spain
+Sensitivity                    0.8000       0.7600         0.58000        0.6300      0.5250       0.7750
+Specificity                    0.9792       0.9675         0.93500        0.9450      0.8858       0.9608
+Pos Pred Value                 0.8649       0.7958         0.59794        0.6562      0.4339       0.7673
+Neg Pred Value                 0.9671       0.9603         0.93035        0.9387      0.9180       0.9624
+Prevalence                     0.1429       0.1429         0.14286        0.1429      0.1429       0.1429
+Detection Rate                 0.1143       0.1086         0.08286        0.0900      0.0750       0.1107
+Detection Prevalence           0.1321       0.1364         0.13857        0.1371      0.1729       0.1443
+Balanced Accuracy              0.8896       0.8638         0.75750        0.7875      0.7054       0.8679
+                     Class: venezuela
+Sensitivity                   0.66000
+Specificity                   0.94833
+Pos Pred Value                0.68041
+Neg Pred Value                0.94362
+Prevalence                    0.14286
+Detection Rate                0.09429
+Detection Prevalence          0.13857
+Balanced Accuracy             0.80417
+
+
+
+/*****************************************/
+NAIVE BAYES
+/*****************************************/
+
+Confusion Matrix and Statistics
+
+           Reference
+Prediction  argentina chile colombia mexico peru spain venezuela
+  argentina       166    29       19     18   21     8        15
+  chile             3   114        5      3   17     0         9
+  colombia          5     7       95     16   17     7        14
+  mexico            1     4        5     78   12     9         5
+  peru              7    11       19     20   41     2        14
+  spain            12    32       22     43   72   169        33
+  venezuela         6     3       35     22   20     5       110
+
+Overall Statistics
+                                          
+               Accuracy : 0.5521          
+                 95% CI : (0.5257, 0.5784)
+    No Information Rate : 0.1429          
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.4775          
+ Mcnemar's Test P-Value : < 2.2e-16       
+
+Statistics by Class:
+
+                     Class: argentina Class: chile Class: colombia Class: mexico Class: peru Class: spain
+Sensitivity                    0.8300      0.57000         0.47500       0.39000     0.20500       0.8450
+Specificity                    0.9083      0.96917         0.94500       0.97000     0.93917       0.8217
+Pos Pred Value                 0.6014      0.75497         0.59006       0.68421     0.35965       0.4413
+Neg Pred Value                 0.9698      0.93114         0.91525       0.90513     0.87636       0.9695
+Prevalence                     0.1429      0.14286         0.14286       0.14286     0.14286       0.1429
+Detection Rate                 0.1186      0.08143         0.06786       0.05571     0.02929       0.1207
+Detection Prevalence           0.1971      0.10786         0.11500       0.08143     0.08143       0.2736
+Balanced Accuracy              0.8692      0.76958         0.71000       0.68000     0.57208       0.8333
+                     Class: venezuela
+Sensitivity                   0.55000
+Specificity                   0.92417
+Pos Pred Value                0.54726
+Neg Pred Value                0.92494
+Prevalence                    0.14286
+Detection Rate                0.07857
+Detection Prevalence          0.14357
+Balanced Accuracy             0.73708
+
+
+
+
+/*********************/
+KNN
+/************************/
+
+DA MALOS RESULTADOS
+
+
+Confusion Matrix and Statistics
+
+           Reference
+Prediction  argentina chile colombia mexico peru spain venezuela
+  argentina       103    18       16     11   21     9         9
+  chile            20    85       17     17   20    26        23
+  colombia          6     7       67     19   15    14        14
+  mexico           11    17       22     92   29    25        19
+  peru             26    45       30     24   67    20        17
+  spain            19    16       24     15   27    90        20
+  venezuela        15    12       24     22   21    16        98
+
+Overall Statistics
+                                          
+               Accuracy : 0.43            
+                 95% CI : (0.4039, 0.4564)
+    No Information Rate : 0.1429          
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.335           
+ Mcnemar's Test P-Value : 0.001508        
+
+Statistics by Class:
+
+                     Class: argentina Class: chile Class: colombia Class: mexico Class: peru Class: spain
+Sensitivity                   0.51500      0.42500         0.33500       0.46000     0.33500      0.45000
+Specificity                   0.93000      0.89750         0.93750       0.89750     0.86500      0.89917
+Pos Pred Value                0.55080      0.40865         0.47183       0.42791     0.29258      0.42654
+Neg Pred Value                0.92003      0.90352         0.89428       0.90886     0.88642      0.90749
+Prevalence                    0.14286      0.14286         0.14286       0.14286     0.14286      0.14286
+Detection Rate                0.07357      0.06071         0.04786       0.06571     0.04786      0.06429
+Detection Prevalence          0.13357      0.14857         0.10143       0.15357     0.16357      0.15071
+Balanced Accuracy             0.72250      0.66125         0.63625       0.67875     0.60000      0.67458
+                     Class: venezuela
+Sensitivity                    0.4900
+Specificity                    0.9083
+Pos Pred Value                 0.4712
+Neg Pred Value                 0.9144
+Prevalence                     0.1429
+Detection Rate                 0.0700
+Detection Prevalence           0.1486
+Balanced Accuracy              0.6992
+
+
+
+/**********************/
+/* BOLSA 500 PALABRAS */
+/**********************/
+
+
+
+/*****************************************/
+Support Vector Machines with Radial Kernel 
+/*****************************************/
+
+
+
+Confusion Matrix and Statistics
+
+           Reference
+Prediction  argentina chile colombia mexico peru spain venezuela
+  argentina       166     2        4      3    8     1         1
+  chile            10   165        4      4    4     1         4
+  colombia          6     7      156     16   14     2        20
+  mexico            4     7       13    155   15    15        14
+  peru              6     8        9      5  139     2         5
+  spain             1     3        2      7    6   170         6
+  venezuela         7     8       12     10   14     9       150
+
+Overall Statistics
+                                         
+               Accuracy : 0.7864         
+                 95% CI : (0.764, 0.8076)
+    No Information Rate : 0.1429         
+    P-Value [Acc > NIR] : < 2e-16        
+                                         
+                  Kappa : 0.7508         
+ Mcnemar's Test P-Value : 0.02969        
+
+Statistics by Class:
+
+                     Class: argentina Class: chile Class: colombia Class: mexico Class: peru Class: spain
+Sensitivity                    0.8300       0.8250          0.7800        0.7750     0.69500       0.8500
+Specificity                    0.9842       0.9775          0.9458        0.9433     0.97083       0.9792
+Pos Pred Value                 0.8973       0.8594          0.7059        0.6951     0.79885       0.8718
+Neg Pred Value                 0.9720       0.9710          0.9627        0.9618     0.95024       0.9751
+Prevalence                     0.1429       0.1429          0.1429        0.1429     0.14286       0.1429
+Detection Rate                 0.1186       0.1179          0.1114        0.1107     0.09929       0.1214
+Detection Prevalence           0.1321       0.1371          0.1579        0.1593     0.12429       0.1393
+Balanced Accuracy              0.9071       0.9012          0.8629        0.8592     0.83292       0.9146
+                     Class: venezuela
+Sensitivity                    0.7500
+Specificity                    0.9500
+Pos Pred Value                 0.7143
+Neg Pred Value                 0.9580
+Prevalence                     0.1429
+Detection Rate                 0.1071
+Detection Prevalence           0.1500
+Balanced Accuracy              0.8500
+
+
+/***** PROBANDO VARIACIONES DE SIGMA **********/
+
+
+
+> model_SVM_variety3
+Support Vector Machines with Radial Basis Function Kernel 
+
+2800 samples
+ 501 predictors
+   7 classes: 'argentina', 'chile', 'colombia', 'mexico', 'peru', 'spain', 'venezuela' 
+
+Pre-processing: centered (501), scaled (501) 
+Resampling: Cross-Validated (3 fold, repeated 1 times) 
+Summary of sample sizes: 1866, 1866, 1868 
+Resampling results across tuning parameters:
+
+  sigma  C     Accuracy   Kappa    
+  0.005  1.25  0.6710879  0.6162678
+  0.005  1.50  0.6718025  0.6171011
+  0.005  2.00  0.6707311  0.6158517
+  0.010  1.25  0.4974796  0.4137461
+  0.010  1.50  0.4971227  0.4133289
+  0.010  2.00  0.4967658  0.4129120
+  0.015  1.25  0.3189177  0.2054301
+  0.015  1.50  0.3171332  0.2033495
+  0.015  2.00  0.3171332  0.2033499
+
+Accuracy was used to select the optimal model using  the largest value.
+The final values used for the model were sigma = 0.005 and C = 1.5. 
+
+
+/*******TEST (sigma = 0.005 and C = 1.5. )
+
+
+           Reference
+Prediction  argentina chile colombia mexico peru spain venezuela
+  argentina       148     0        3      3    5     1         1
+  chile            14   153        6      1   13     0         2
+  colombia          8     8      143     20   11     4        20
+  mexico            5     8        9    122   12     8         8
+  peru              5     7        6      7  124     5         7
+  spain             1     2        2      9    3   148         5
+  venezuela        19    22       31     38   32    34       157
+
+Overall Statistics
+                                          
+               Accuracy : 0.7107          
+                 95% CI : (0.6862, 0.7344)
+    No Information Rate : 0.1429          
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.6625          
+ Mcnemar's Test P-Value : < 2.2e-16       
+
+Statistics by Class:
+
+                     Class: argentina Class: chile Class: colombia Class: mexico Class: peru Class: spain
+Sensitivity                    0.7400       0.7650          0.7150       0.61000     0.62000       0.7400
+Specificity                    0.9892       0.9700          0.9408       0.95833     0.96917       0.9817
+Pos Pred Value                 0.9193       0.8095          0.6682       0.70930     0.77019       0.8706
+Neg Pred Value                 0.9580       0.9612          0.9519       0.93648     0.93866       0.9577
+Prevalence                     0.1429       0.1429          0.1429       0.14286     0.14286       0.1429
+Detection Rate                 0.1057       0.1093          0.1021       0.08714     0.08857       0.1057
+Detection Prevalence           0.1150       0.1350          0.1529       0.12286     0.11500       0.1214
+Balanced Accuracy              0.8646       0.8675          0.8279       0.78417     0.79458       0.8608
+                     Class: venezuela
+Sensitivity                    0.7850
+Specificity                    0.8533
+Pos Pred Value                 0.4715
+Neg Pred Value                 0.9597
+Prevalence                     0.1429
+Detection Rate                 0.1121
+Detection Prevalence           0.2379
+Balanced Accuracy              0.8192
+
+
+
+
+
+/******* PROBAMOS CON ESTOS VALORES: grid <- expand.grid(sigma = c(.00001, .0001, .001, .005), C = c(1.5))
+
+Support Vector Machines with Radial Basis Function Kernel 
+
+2800 samples
+ 501 predictors
+   7 classes: 'argentina', 'chile', 'colombia', 'mexico', 'peru', 'spain', 'venezuela' 
+
+Pre-processing: centered (501), scaled (501) 
+Resampling: Cross-Validated (3 fold, repeated 1 times) 
+Summary of sample sizes: 1868, 1866, 1866 
+Resampling results across tuning parameters:
+
+  sigma  Accuracy   Kappa    
+  1e-05  0.4272117  0.3320385
+  1e-04  0.7185640  0.6716578
+  1e-03  0.7528551  0.7116650
+  5e-03  0.6785749  0.6250128
+
+Tuning parameter 'C' was held constant at a value of 1.5
+Accuracy was used to select the optimal model using  the largest value.
+The final values used for the model were sigma = 0.001 and C = 1.5. 
+
+
+Confusion Matrix and Statistics
+
+           Reference
+Prediction  argentina chile colombia mexico peru spain venezuela
+  argentina       167     4        3      4    9     1         1
+  chile             8   166        5      4    9     1         5
+  colombia          6     7      158     16   14     3        22
+  mexico            6     7       12    154   14    14        10
+  peru              6     6        8      6  138     3         4
+  spain             1     3        1      7    4   170         6
+  venezuela         6     7       13      9   12     8       152
+
+Overall Statistics
+                                         
+               Accuracy : 0.7893         
+                 95% CI : (0.767, 0.8104)
+    No Information Rate : 0.1429         
+    P-Value [Acc > NIR] : <2e-16         
+                                         
+                  Kappa : 0.7542         
+ Mcnemar's Test P-Value : 0.2251         
+
+Statistics by Class:
+
+                     Class: argentina Class: chile Class: colombia Class: mexico Class: peru Class: spain
+Sensitivity                    0.8350       0.8300          0.7900        0.7700     0.69000       0.8500
+Specificity                    0.9817       0.9733          0.9433        0.9475     0.97250       0.9817
+Pos Pred Value                 0.8836       0.8384          0.6991        0.7097     0.80702       0.8854
+Neg Pred Value                 0.9727       0.9717          0.9642        0.9611     0.94955       0.9752
+Prevalence                     0.1429       0.1429          0.1429        0.1429     0.14286       0.1429
+Detection Rate                 0.1193       0.1186          0.1129        0.1100     0.09857       0.1214
+Detection Prevalence           0.1350       0.1414          0.1614        0.1550     0.12214       0.1371
+Balanced Accuracy              0.9083       0.9017          0.8667        0.8588     0.83125       0.9158
+                     Class: venezuela
+Sensitivity                    0.7600
+Specificity                    0.9542
+Pos Pred Value                 0.7343
+Neg Pred Value                 0.9598
+Prevalence                     0.1429
+Detection Rate                 0.1086
+Detection Prevalence           0.1479
+Balanced Accuracy              0.8571
+
+
+
+/**********************/
+/* BOLSA 5000 PALABRAS */
+/**********************/
+
+/*****************************************/
+Support Vector Machines with Radial Kernel 
+/*****************************************/
+
+
+Confusion Matrix and Statistics
+
+           Reference
+Prediction  argentina chile colombia mexico peru spain venezuela
+  argentina       178     1        1      1    3     2         2
+  chile             2   172        0      0    2     0         0
+  colombia          3     2      180      7    5     3        14
+  mexico            3    10        5    175    8     2         8
+  peru              4     5        3      3  164     2         3
+  spain             1     2        0      3    5   177         4
+  venezuela         9     8       11     11   13    14       169
+
+Overall Statistics
+                                         
+               Accuracy : 0.8679         
+                 95% CI : (0.849, 0.8852)
+    No Information Rate : 0.1429         
+    P-Value [Acc > NIR] : < 2.2e-16      
+                                         
+                  Kappa : 0.8458         
+ Mcnemar's Test P-Value : 0.0002838      
+
+Statistics by Class:
+
+                     Class: argentina Class: chile Class: colombia Class: mexico Class: peru Class: spain
+Sensitivity                    0.8900       0.8600          0.9000        0.8750      0.8200       0.8850
+Specificity                    0.9917       0.9967          0.9717        0.9700      0.9833       0.9875
+Pos Pred Value                 0.9468       0.9773          0.8411        0.8294      0.8913       0.9219
+Neg Pred Value                 0.9818       0.9771          0.9831        0.9790      0.9704       0.9810
+Prevalence                     0.1429       0.1429          0.1429        0.1429      0.1429       0.1429
+Detection Rate                 0.1271       0.1229          0.1286        0.1250      0.1171       0.1264
+Detection Prevalence           0.1343       0.1257          0.1529        0.1507      0.1314       0.1371
+Balanced Accuracy              0.9408       0.9283          0.9358        0.9225      0.9017       0.9363
+                     Class: venezuela
+Sensitivity                    0.8450
+Specificity                    0.9450
+Pos Pred Value                 0.7191
+Neg Pred Value                 0.9734
+Prevalence                     0.1429
+Detection Rate                 0.1207
+Detection Prevalence           0.1679
+Balanced Accuracy              0.8950
+
+
